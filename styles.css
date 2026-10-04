@@ -98,10 +98,14 @@ h1 em, h2 em { color: var(--navy); font-weight: 600; }
 .project-card { min-width: 0; }
 .project-card:nth-child(2) { margin-top: 78px; }
 .project-image { aspect-ratio: 1.32; position: relative; display: grid; place-items: center; overflow: hidden; }
+.project-image::after { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(17, 24, 32, .28), transparent 44%, rgba(17, 24, 32, .78)); content: ""; pointer-events: none; }
+.project-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 300ms ease; }
+.project-image:hover .project-photo { transform: scale(1.04); }
 .image-navy { background: var(--navy); color: var(--paper); }
 .image-black { background: var(--ink); color: var(--paper); }
-.project-number { position: absolute; top: 18px; left: 18px; }
-.project-arrow { position: absolute; top: 15px; right: 17px; font-size: 20px; transition: transform 180ms ease; }
+.project-number { position: absolute; z-index: 2; top: 18px; left: 18px; color: white; }
+.project-photo-label { position: absolute; z-index: 2; bottom: 17px; left: 18px; color: white; font-size: clamp(16px, 2.4vw, 28px); font-weight: 700; letter-spacing: -.04em; }
+.project-arrow { position: absolute; z-index: 2; top: 15px; right: 17px; color: white; font-size: 20px; transition: transform 180ms ease; }
 .project-image:hover .project-arrow { transform: translate(3px, -3px); }
 .project-art-type { color: var(--paper); font-family: var(--sans); font-size: clamp(55px, 9vw, 112px); font-weight: 700; line-height: .8; letter-spacing: 0; text-align: center; transform: rotate(-7deg); }
 .project-art-orbit { width: 190px; aspect-ratio: 1; position: relative; border: 1px solid var(--paper); border-radius: 50%; transform: rotate(-35deg); }
@@ -127,7 +131,7 @@ h1 em, h2 em { color: var(--navy); font-weight: 600; }
 .contact-link { display: inline-block; border-bottom: 1px solid #71839a; padding-bottom: 8px; font-size: 15px; }
 .contact-link span { margin-left: 16px; color: var(--paper); }
 .contact-foot { margin-top: 88px; padding-top: 20px; border-top: 1px solid #435a74; display: flex; align-items: center; justify-content: space-between; color: #c4ccd6; }
-.contact-foot div { display: flex; gap: 25px; color: var(--paper); }
+.contact-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 25px; color: var(--paper); }
 .site-footer { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 9px; }
 
 @media (max-width: 760px) {
